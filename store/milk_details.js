@@ -14,7 +14,7 @@ setError: (err) => set({ error: err }),
   fetchMilk: async () => {
     set({ loading: true, error: null });
     try {
-      const response = await axios.get(`${baseURL}/api/user-auth/milk-details`);
+      const response = await axios.get("https://milk-home-delivery.vercel.app/api/user-auth/milk-details");
       const milkData = response.data.milkdetails || [];
       set({ milk: milkData, loading: false });
     } catch (error) {
