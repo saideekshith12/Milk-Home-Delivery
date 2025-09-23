@@ -42,7 +42,7 @@ export default function AddToCartPage() {
     setErrors(null);
 
     try {
-      const res = await axios.post(`${baseURL}/api/user-auth/add-to-cart`, {
+      const res = await axios.post(`https://milk-home-delivery.vercel.app/api/user-auth/add-to-cart`, {
         milkEntryId: selectedMilkId,
         quantity_selected: quantity,
       });

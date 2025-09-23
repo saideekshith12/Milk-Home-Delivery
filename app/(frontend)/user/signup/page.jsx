@@ -21,7 +21,7 @@ export default function Signup() {
     setSuccess("")
 
     try {
-      const response = await axios.post(`${baseURL}/api/signup`, {
+      const response = await axios.post(`https://milk-home-delivery.vercel.app/api/signup`, {
         name,
         email,
         password,

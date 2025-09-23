@@ -46,7 +46,7 @@ export default function MilkEntry() {
     setLoading(true);
     try {
       const response = await axios.post(
-        `${baseURL}/api/admin/milk-entry`,
+        `https://milk-home-delivery.vercel.app/api/admin/milk-entry`,
         {
           price,
           today_total_litres: todayTotalLitres,

@@ -32,7 +32,7 @@ export default function ShowCart() {
   useEffect(() => {
   const fetchCart = async () => {
     try {
-      const response = await axios.get(`${baseURL}/api/user-auth/cart`); 
+      const response = await axios.get(`https://milk-home-delivery.vercel.app/api/user-auth/cart`); 
       const data = response.data;
 
       // Use 'data' key, not 'cart'
@@ -90,7 +90,7 @@ export default function ShowCart() {
 
       const milkid = cart[0].milkEntry || cart[0]._id;
 
-      const response = await axios.post(`${baseURL}/api/user-auth/buy-now`, { 
+      const response = await axios.post(`https://milk-home-delivery.vercel.app/api/user-auth/buy-now`, { 
         milkid,
         name: form.name,
         mobile: form.mobile,
@@ -130,7 +130,7 @@ export default function ShowCart() {
     setSuccess("");
 
     const response = await axios.post(
-      `${baseURL}/api/user-auth/price-quantity-increase-add-to-cart-buynow`,
+      `https://milk-home-delivery.vercel.app/api/user-auth/price-quantity-increase-add-to-cart-buynow`,
       { accept: true }
     );
 
@@ -173,7 +173,7 @@ export default function ShowCart() {
     setSuccess("");
 
     const response = await axios.post(
-      `${baseURL}/api/user-auth/price-quantity-reduce-add-to-cart-buynow`,
+      `https://milk-home-delivery.vercel.app/api/user-auth/price-quantity-reduce-add-to-cart-buynow`,
       { accept: true }
     );
 

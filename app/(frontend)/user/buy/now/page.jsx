@@ -48,7 +48,7 @@ export default function BuyNow() {
     setSubmitting(true);
 
     try {
-      const res = await axios.post(`${baseURL}/api/user-auth/instant-buy-now`, {
+      const res = await axios.post(`https://milk-home-delivery.vercel.app/api/user-auth/instant-buy-now`, {
         milkid: selectedMilkId,
         quantity_selected: quantity,
         name,
