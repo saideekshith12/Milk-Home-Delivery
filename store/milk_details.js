@@ -1,5 +1,6 @@
 import axios from "axios";
 import { create } from "zustand";
+const baseURL = process.env.NEXT_PUBLIC_API_URL;
 
 const useMilkDetails = create((set) => ({
   milk: [],             
@@ -13,7 +14,7 @@ setError: (err) => set({ error: err }),
   fetchMilk: async () => {
     set({ loading: true, error: null });
     try {
-      const response = await axios.get("http://localhost:3000/milk-details");
+      const response = await axios.get(`${baseURL}/milk-details`);
       const milkData = response.data.milkdetails || [];
       set({ milk: milkData, loading: false });
     } catch (error) {

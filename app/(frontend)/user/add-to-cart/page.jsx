@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
+const baseURL = process.env.NEXT_PUBLIC_API_URL;
 export default function AddToCartPage() {
   const router = useRouter();
   const { milk, loading, error, fetchMilk } = useMilkDetails();
@@ -40,7 +41,7 @@ export default function AddToCartPage() {
     setErrors(null);
 
     try {
-      const res = await axios.post("/add-to-cart", {
+      const res = await axios.post(`${baseURL}/add-to-cart`, {
         milkEntryId: selectedMilkId,
         quantity_selected: quantity,
       });

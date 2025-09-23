@@ -5,6 +5,7 @@ import useMilkDetails from "@/store/milk_details";
 import axios from "axios";
 import Image from "next/image";
 
+const baseURL = process.env.NEXT_PUBLIC_API_URL;
 export default function BuyNow() {
   const { milk, loading, error, fetchMilk } = useMilkDetails();
 
@@ -46,7 +47,7 @@ export default function BuyNow() {
     setSubmitting(true);
 
     try {
-      const res = await axios.post("/instant-buy-now", {
+      const res = await axios.post(`${baseURL}/instant-buy-now`, {
         milkid: selectedMilkId,
         quantity_selected: quantity,
         name,

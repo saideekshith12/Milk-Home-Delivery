@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import axios from "axios";
 
+const baseURL = process.env.NEXT_PUBLIC_API_URL;
+
 export default function InstantOrders() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -12,7 +14,7 @@ export default function InstantOrders() {
 
   const handleOrder = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/orders");
+      const response = await axios.get(`${baseURL}/orders`);
       const data = response.data;
       setOrderedData(data.data || []);
     } catch (err) {
