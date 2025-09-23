@@ -1,26 +1,78 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.header{
+    display: flex;
+    margin-top: 10px;
+    font-size: larger;
+    font-weight: 600;
+    margin-left: 20px;
+    box-sizing: border-box;
+ 
+
+}
+.buttons_home{
+    display: flex;
+    margin-left: auto;
+    gap: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    height: max-content;
+}
+.card{
+    
+    padding: 20px;
+    box-sizing: border-box;
+    height: max-content;
+    width: max-content;
+    box-shadow: 0px 0px 10px 0px rgba(207, 203, 203, 0.75);
+    padding: 50px;
+    align-content: center;
+    text-align: center;
+    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+}
+.button-orders{
+    box-sizing: border-box;
+    height: max-content;
+    width: max-content;
+    padding: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(207, 203, 203, 0.75);
+    margin-top: 20px;
+    color: black;
+    border-radius: 10px;
+    font-size: larger;
+    
+    
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.order{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-left: 1120px;
+    
+}
+hr{
+    margin-top: 10px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+.title{
+    margin-top: 10px;
+    font-size: 35px;
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+.cart1{
+    margin-left: 20px;
+    box-sizing: border-box;
+    height: max-content;
+    width: max-content;
+    padding: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(207, 203, 203, 0.75);
+    margin-top: 20px;
+    color: black;
+    border-radius: 10px;
+    font-size: larger;
+    margin-left: 980px;
 }
