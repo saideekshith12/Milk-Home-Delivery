@@ -14,7 +14,7 @@ export default function InstantOrders() {
 
   const handleOrder = async () => {
     try {
-      const response = await axios.get(`${baseURL}/orders`);
+      const response = await axios.get(`${baseURL}/api/user-auth/orders`);
       const data = response.data;
       setOrderedData(data.data || []);
     } catch (err) {

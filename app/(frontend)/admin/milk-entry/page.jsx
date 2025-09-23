@@ -4,8 +4,10 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
+ const baseURL = process.env.NEXT_PUBLIC_API_URL;
+
 export default function MilkEntry() {
-  const baseURL = process.env.NEXT_PUBLIC_API_URL;
+ 
   const router = useRouter();
   const [checkedAuth, setCheckedAuth] = useState(false);
 
@@ -44,7 +46,7 @@ export default function MilkEntry() {
     setLoading(true);
     try {
       const response = await axios.post(
-        "${baseURL}/api/admin/milk-entry",
+        `${baseURL}/api/admin/milk-entry`,
         {
           price,
           today_total_litres: todayTotalLitres,

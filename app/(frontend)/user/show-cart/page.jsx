@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
 
+
 const baseURL = process.env.NEXT_PUBLIC_API_URL;
 export default function ShowCart() {
 
@@ -31,7 +32,7 @@ export default function ShowCart() {
   useEffect(() => {
   const fetchCart = async () => {
     try {
-      const response = await axios.get(`${baseURL}/cart`); 
+      const response = await axios.get(`${baseURL}/api/user-auth/cart`); 
       const data = response.data;
 
       // Use 'data' key, not 'cart'
@@ -89,7 +90,7 @@ export default function ShowCart() {
 
       const milkid = cart[0].milkEntry || cart[0]._id;
 
-      const response = await axios.post(`${baseURL}/buy-now`, { 
+      const response = await axios.post(`${baseURL}/api/user-auth/buy-now`, { 
         milkid,
         name: form.name,
         mobile: form.mobile,
@@ -129,7 +130,7 @@ export default function ShowCart() {
     setSuccess("");
 
     const response = await axios.post(
-      `${baseURL}/price-quantity-increase-add-to-cart-buynow`,
+      `${baseURL}/api/user-auth/price-quantity-increase-add-to-cart-buynow`,
       { accept: true }
     );
 
@@ -172,7 +173,7 @@ export default function ShowCart() {
     setSuccess("");
 
     const response = await axios.post(
-      `${baseURL}{/price-quantity-reduce-add-to-cart-buynow`,
+      `${baseURL}/api/user-auth/price-quantity-reduce-add-to-cart-buynow`,
       { accept: true }
     );
 
