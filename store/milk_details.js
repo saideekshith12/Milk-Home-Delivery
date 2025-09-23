@@ -14,7 +14,7 @@ const useMilkDetails = create((set) => ({
   fetchMilk: async () => {
     set({ loading: true, error: null });
     try {
-      const response = await axios.get(`${url}/api/user-auth/milk-details`);
+      const response = await axios.get(`/api/user-auth/milk-details`);
       const milkData = response.data.milkdetails || [];
       set({ milk: milkData, loading: false });
     } catch (error) {
