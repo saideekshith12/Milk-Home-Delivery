@@ -25,6 +25,7 @@ export default function SignIn() {
     if (result?.error) {
       setError("Invalid email or password");
     } else {
+      localStorage.setItem("userEmail", "true");
       router.push("/");
     }
   };
