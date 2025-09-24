@@ -3,10 +3,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
+import { useSession } from "next-auth/react";
 
 
 const baseURL = process.env.NEXT_PUBLIC_API_URL;
 export default function ShowCart() {
+  const { data: session , status } = useSession();
 
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
@@ -30,8 +32,16 @@ export default function ShowCart() {
   const [updating, setUpdating] = useState(false);
 
   useEffect(() => {
+
+    if (status === "loading") return;
+    if (status === "unauthenticated") {
+      setError("Please login to view your cart");
+      setLoading(false);
+      return;
+    }
   const fetchCart = async () => {
     try {
+      const token = session?.user?.id;
       const response = await axios.get(`https://milk-home-delivery.vercel.app/api/user-auth/cart`); 
       const data = response.data;
 
@@ -54,7 +64,7 @@ export default function ShowCart() {
   };
 
   fetchCart();
-}, []);
+}, [status, session]);
 
 
   const handleAddressChange = (e) => {

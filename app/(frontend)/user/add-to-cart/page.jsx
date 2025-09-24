@@ -11,6 +11,7 @@ import { useSession } from "next-auth/react";
  const baseURL = process.env.NEXT_PUBLIC_API_URL;
 
 export default function AddToCartPage() {
+  const { data: session , status } = useSession();
   const router = useRouter();
   const { milk, loading, error, fetchMilk } = useMilkDetails();
   const alertShown = useRef(false);
@@ -22,8 +23,11 @@ export default function AddToCartPage() {
   const [errors, setErrors] = useState(null);
 
   useEffect(() => {
-    fetchMilk();
-  }, [fetchMilk, router]);
+    if (status === "unauthenticated") {
+      alert("Please login first");
+      router.push("/signin");
+    }
+  }, [status, router]);
 
   const handleAddToCart = async (e) => {
     e.preventDefault();
@@ -51,6 +55,8 @@ export default function AddToCartPage() {
       setSubmitting(false);
     }
   };
+  if (status === "loading") return <p>Loading...</p>;
+  if (!session) return null;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-white p-6">
