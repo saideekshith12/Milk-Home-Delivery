@@ -21,8 +21,8 @@ export default function AddToCartPage() {
   const [errors, setErrors] = useState(null);
 
   useEffect(() => {
-    const storage = localStorage.getItem("userEmail");
-    if (!storage && !alertShown.current) {
+    const userEmail = localStorage.getItem("userEmail");
+    if (!userEmail && !alertShown.current) {
       alertShown.current = true;
       alert("Please login");
       router.push("/user/login");
