@@ -6,6 +6,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
  const baseURL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -21,12 +22,6 @@ export default function AddToCartPage() {
   const [errors, setErrors] = useState(null);
 
   useEffect(() => {
-    const userEmail = localStorage.getItem("userEmail");
-    if (!userEmail && !alertShown.current) {
-      alertShown.current = true;
-      alert("Please login");
-      router.push("/user/login");
-    }
     fetchMilk();
   }, [fetchMilk, router]);
 
