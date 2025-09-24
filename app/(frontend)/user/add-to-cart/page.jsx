@@ -25,7 +25,7 @@ export default function AddToCartPage() {
   useEffect(() => {
     if (status === "unauthenticated") {
       alert("Please login first");
-      router.push("/signin");
+      router.push("/user/signin");
     }
   }, [status, router]);
 
